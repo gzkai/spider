@@ -39,7 +39,7 @@ def main_muti():
         utils.save_file(watched_file, watched_list)
 
 def crawl_url(url, watching_list, watched_list):
-    print("parse url: %s, parsed %s" % (url, len(watched_list)))
+    print("visiting url: %s, visited %s links" % (url, len(watched_list)))
     watched_list.append(url)
     html = html_parser.get_page_content(url)
     html_parser.parser_html(html)
