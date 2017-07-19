@@ -40,6 +40,3 @@ def check_url(url):
         return False
     else:
         return True
-
-if __name__ == "__main__":
-    parser_html(conf.html)
