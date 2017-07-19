@@ -6,7 +6,7 @@ import re
 
 # visit the url and get page content
 def get_page_content(url):
-    # example douban movie
+    # example: douban movie
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.109 Safari/537.36",
@@ -25,7 +25,7 @@ def get_page_content(url):
 
 # extract things you need and save it
 def parser_html(html):
-    # example douban movie
+    # example: douban movie
     soup = BeautifulSoup(html, "lxml")
     content = soup.find("div", id="content")
     title = content.find("h1").span.get_text() # 电影名
@@ -58,7 +58,7 @@ def find_links(html, watching_list, watched_list):
 
 # check if the link is your need
 def check_url(url):
-    # example douban movie
+    # example: douban movie
     patter = re.compile(r"^((https|http)?://)movie.douban.com/subject/[1-9]\d*/\?from=subject-page.*")
     if patter.match(url) is None:
         return False

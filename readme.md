@@ -1,3 +1,3 @@
 # Simple spider
 
-you should add one link in `watching.txt`
+you should add at least one link in `watching.txt`
