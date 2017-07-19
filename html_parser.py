@@ -3,7 +3,6 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import conf
 
 # visit the url and get page content
 def get_page_content(url):
