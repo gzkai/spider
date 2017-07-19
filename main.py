@@ -53,6 +53,8 @@ def crawl_url(url, watching_list, watched_list):
     html_parser.parser_html(html)
     watched_list.append(url)
     html_parser.find_links(html, watching_list, watched_list)
+    utils.save_file(watching_file, watching_list)
+    utils.save_file(watched_file, watched_list)
 
 
 if __name__ == "__main__":
