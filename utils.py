@@ -1,10 +1,8 @@
 # encoding=utf-8
 
-import multiprocessing
-
 
 def load_file(filename):
-    result = multiprocessing.Manager().list()
+    result = list()
     for line in open(filename):
         result.append(line.strip())
     return result
