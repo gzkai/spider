@@ -7,6 +7,7 @@ import logging
 import html_parser
 import utils
 import threading
+import time
 
 watching_file = "../watching.txt"
 watched_file = "../watched.txt"
@@ -18,12 +19,19 @@ def main():
     global lock
     global watching
     global watched
+    sleep_count = 0
     try:
-        while len(watching) > 0:
-            lock.acquire()
-            current_url = watching.pop(0)
-            lock.release()
-            crawl_url(current_url, watching, watched)
+        while True:
+            if len(watching) > 0:
+                lock.acquire()
+                current_url = watching.pop(0)
+                lock.release()
+                crawl_url(current_url, watching, watched)
+            else:
+                sleep_count += 1
+                if sleep_count > 3:
+                    break
+                time.sleep(5)
         update_file()
     except KeyboardInterrupt as e:
         update_file()
