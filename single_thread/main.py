@@ -1,12 +1,14 @@
 # encoding=utf-8
 
-import logging
+import sys
+sys.path.append("../")
 
+import logging
 import html_parser
 import utils
 
-watching_file = "watching.txt"
-watched_file = "watched.txt"
+watching_file = "../watching.txt"
+watched_file = "../watched.txt"
 
 def main():
     watching_list = utils.load_file(watching_file)
